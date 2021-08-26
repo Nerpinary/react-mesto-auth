@@ -113,6 +113,16 @@ function App() {
     setIsTooltipOpen(false);
   }
 
+  React.useEffect(() => {
+    const closeByEscape = (e) => {
+      if (e.key === 'Escape') {
+        closeAllPopups();
+      }
+    }
+    document.addEventListener('keydown', closeByEscape)
+    return () => document.removeEventListener('keydown', closeByEscape)
+}, [])
+
   function onRegister(email, password) {
     auth.register(email, password)
       .then(() => {
@@ -120,7 +130,7 @@ function App() {
         history.push('/sign-in');
       })
       .catch(() => setIsRegistrationSuccessful(false))
-      .then(() => setIsTooltipOpen(true));
+      .finally(() => setIsTooltipOpen(true));
   }
   
   const [userEmail, setUserEmail] = React.useState('');
@@ -140,7 +150,6 @@ function App() {
         setIsLoggedIn(res.data != null);
         setUserEmail(res.data.email);
         history.push('/');
-        console.log(res);
       })
       .catch((err) => {
         console.log(`Ошибка: ${err.status}`);

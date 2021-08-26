@@ -4,11 +4,13 @@
   background-image: url(../../../images/Logo.svg);
   background-size: 100%;
   margin-bottom: 41px;
+  display: flex;
 }
 
 .header__logo:hover {
   transition: opacity 0.2s;
   opacity: 0;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 730px) {

@@ -43,7 +43,7 @@ class Auth {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `senpaioo ${token}`,
+        'Authorization': `Bearer ${token}`,
       }
     })
       .then(this._handleResponse);
