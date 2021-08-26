@@ -6,7 +6,7 @@ function Header(props) {
 
     return (
         <header className="header">
-            <link className="header__logo" to="/"></link>
+            <Link className="header__logo" to="/"></Link>
             <div className="header__menu">
                 <Switch>
                     <Route path="/sign-up"><Link className="header__item" to="/sign-in">Вход</Link></Route>

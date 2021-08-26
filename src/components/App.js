@@ -121,7 +121,7 @@ function App() {
     }
     document.addEventListener('keydown', closeByEscape)
     return () => document.removeEventListener('keydown', closeByEscape)
-}, [])
+  }, [])
 
   function onRegister(email, password) {
     auth.register(email, password)
@@ -161,7 +161,6 @@ function App() {
       .then(() => {
         setIsLoggedIn(true);
         history.push('/');
-        onTokenCheck();
       })
       .catch((error) => {
         console.log(error);
